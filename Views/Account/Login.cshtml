@@ -1,0 +1,73 @@
+﻿@using MyHelper.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Log in";
+}
+
+@using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+<<head>
+
+<title>LOGIN Page</title>
+
+<!-- Meta-Tags -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="keywords" content="Existing Login Form Widget Responsive, Login Form Web Template, Flat Pricing Tables, Flat Drop-Downs, Sign-Up Web Templates, Flat Web Templates, Login Sign-up Responsive Web Template, Smartphone Compatible Web Template, Free Web Designs for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design">
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //Meta-Tags -->
+
+<link href="~/New Content/css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+
+<!-- Style --> <link rel="stylesheet" href="~/New Content/css/style.css" type="text/css" media="all">
+
+<!-- Fonts -->
+<link href="//fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
+<!-- //Fonts -->
+
+</head>
+    <!-- //Head -->
+    <!-- Body -->
+<body>
+    <section id="loginForm">
+        <h1>Login to your account</h1>
+
+        <div class="w3layoutscontaineragileits">
+            <h2>Login here</h2>
+            <form action="#" method="post">
+                <p>Email/UserName</p>
+                @Html.TextBoxFor(m => m.Email, new { @class = "Email-Class" })
+                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                <p>Password</p>
+                @Html.PasswordFor(m => m.Password, new { @class = "Email-Class" })
+                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                <div class="checkbox">
+                    <ul class="agileinfotickwthree">
+                      
+                            @Html.CheckBoxFor(m => m.RememberMe)
+                            @Html.LabelFor(m => m.RememberMe, "Remember Me", new { Style = "color:white" })
+                       
+                    </ul>
+                    </div>
+                    <div class="aitssendbuttonw3ls">
+                        <input type="submit" value="LOGIN">
+                        <p>
+                            <a class="w3_play_icon1" , @Html.ActionLink("Register as a new user", "Register")></a>
+                        </p>
+                        <div class="clear"></div>
+                    </div>
+            </form>
+        </div>
+    </section>
+</body>
+         
+   
+
+
+
+        }
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval");
+}

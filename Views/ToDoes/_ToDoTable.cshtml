@@ -1,0 +1,36 @@
+﻿@model IEnumerable<MyHelper.Models.ToDo>
+
+<div id="progressBar">
+    <p>@(ViewBag.Percent)%</p>
+    <div class="progress">
+        <div class="progress-bar" role="progressbar"
+             style="width:@(Html.AttributeEncode(ViewBag.Percent))%"></div>
+    </div>
+</div>
+<table class="table">
+   @foreach (var item in Model)
+    {
+
+
+<tr>
+            <td>
+                @if (!item.IsDone) {
+                @Html.DisplayFor(modelItem => item.Description)
+                }
+                else
+                {
+                <div class="CompletedToDo"> @Html.DisplayFor(modelItem => item.Description)</div>
+                }
+            </td>
+            <td>
+                @Html.CheckBoxFor(modelItem => item.IsDone,new { id=item.Id, @class="ActiveCheck"})
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-mini btn-info icon-edit bigger-120" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-mini btn-danger icon-trash bigger-120" })
+            </td>
+        </tr>
+    }
+
+</table>
+<script src="~/Custom_Scripts/AddJavaScriptListener.js"></script>

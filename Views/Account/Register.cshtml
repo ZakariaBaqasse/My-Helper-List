@@ -1,0 +1,50 @@
+﻿@model MyHelper.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+
+<h2>@ViewBag.Title.</h2>
+
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <
+    <head>
+        <!-- Meta-Tags -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="keywords" content="Existing Login Form Widget Responsive, Login Form Web Template, Flat Pricing Tables, Flat Drop-Downs, Sign-Up Web Templates, Flat Web Templates, Login Sign-up Responsive Web Template, Smartphone Compatible Web Template, Free Web Designs for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design">
+        <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+        <!-- //Meta-Tags -->
+
+        <link href="~/New Content/css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+
+        <!-- Style -->
+        <link rel="stylesheet" href="~/New Content/css/style.css" type="text/css" media="all">
+
+        <!-- Fonts -->
+        <link href="//fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
+        <!-- //Fonts -->
+
+    </head>
+    <body>
+        <h2>Create a new account.</h2>
+        <div class="w3layoutscontaineragileits">
+                @Html.ValidationSummary("", new { @class = "text-danger" })
+                 <p>Email/Username</p>
+                 @Html.TextBoxFor(m => m.Email, new { @class = "Email-Class" })
+                <p>Password</p>
+                 @Html.PasswordFor(m => m.Password, new { @class = "Email-Class" })
+                <p>Confirm Password</p>
+                 @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "Email-Class" })
+                    
+            <div class="aitssendbuttonw3ls">
+            <input type="submit" class="btn btn-default" value="Register" />
+            </div>
+                </div>
+    </body>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
